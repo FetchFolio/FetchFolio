@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FetchFolio - Amazon Style</title>
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #111; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Top Header */
+    .top-header { display: flex; align-items: center; background: #232f3e; color: #fff; padding: 0.5rem 1rem; font-size: 0.9rem; }
+    .top-header .logo { font-size: 1.25rem; font-weight: bold; margin-right: 1rem; }
+    .top-header .location { display: flex; align-items: center; margin-right: 2rem; }
+    .top-header .location span { margin-left: 0.25rem; }
+    .top-header .search-container { flex: 1; display: flex; }
+    .top-header .search-container select,
+    .top-header .search-container input { padding: 0.4rem; border: none; }
+    .top-header .search-container select { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+    .top-header .search-container input { flex: 1; }
+    .top-header .search-container button { padding: 0.4rem 0.75rem; background: #febd69; border: none; cursor: pointer; border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+    .top-header .user-actions { display: flex; align-items: center; gap: 1rem; margin-left: 2rem; }
+    .top-header .user-actions div { position: relative; cursor: pointer; }
+    .top-header .user-actions .cart::after { content: attr(data-count); position: absolute; top: -8px; right: -12px; background: #f08804; color: #000; font-size: 0.75rem; padding: 0 4px; border-radius: 50%; }
+
+    /* Main Nav */
+    nav.main-nav { background: #37475a; padding: 0.5rem 1rem; }
+    nav.main-nav ul { list-style: none; display: flex; gap: 1.5rem; font-size: 0.9rem; }
+    nav.main-nav ul li:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .top-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .top-header .search-container { width: 100%; }
+      nav.main-nav ul { flex-wrap: wrap; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Header -->
+  <div class="top-header">
+    <div class="logo">FetchFolio</div>
+    <div class="location">
+      <svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+      <span>Deliver to Akhil, Alappuzha 688003</span>
+    </div>
+    <div class="search-container">
+      <select>
+        <option>All</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Home</option>
+        <option>Toys</option>
+      </select>
+      <input type="text" placeholder="Search Amazon.in" />
+      <button><svg width="16" height="16" fill="#111" viewBox="0 0 24 24"><path d="M21.71 20.29l-3.4-3.39a9 9 0 10-1.41 1.41l3.39 3.4a1 1 0 001.42-1.42zM11 18a7 7 0 117-7 7 7 0 01-7 7z"/></svg></button>
+    </div>
+    <div class="user-actions">
+      <div class="country">🇮🇳 EN</div>
+      <div class="account">Hello, Akhil<br><strong>Account & Lists</strong></div>
+      <div class="orders">Returns<br><strong>& Orders</strong></div>
+      <div class="cart" data-count="0">🛒 Cart</div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <ul>
+      <li>All</li>
+      <li>Fresh Meat</li>
+      <li>Amazon Pay</li>
+      <li>Today's Deals</li>
+      <li>Bestsellers</li>
+      <li>MX Player</li>
+      <li>Sell</li>
+      <li>Gift Cards</li>
+      <li>Buy Again</li>
+      <li>Gift Ideas</li>
+      <li>Browsing History</li>
+      <li>Books</li>
+    </ul>
+  </nav>
+
+  <!-- (Rest of page content would go here) -->
+
+  <script>
+    // JS to update cart count (example)
+    let count = 0;
+    document.querySelectorAll('.product-card button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        count++;
+        document.querySelector('.cart').setAttribute('data-count', count);
+      });
+    });
+  </script>
+</body>
+</html>
